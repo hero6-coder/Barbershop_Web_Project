@@ -28,8 +28,8 @@ public class ValidationRuleTest {
                 .accept(MediaType.TEXT_HTML)
                 .param("nickName","name")
                 .param("email", "john@yahoo.com")
-                .param("password", "password")
-                .param("confirmPassword", "password"))
+                .param("password", "password12")
+                .param("confirmPassword", "password12"))
                 .andExpect(model().errorCount(0))
                 .andExpect(status().isOk());
     }
@@ -44,7 +44,7 @@ public class ValidationRuleTest {
                 .param("email", "johnyahoocom")
                 .param("password", "pass")
                 .param("confirmPassword", "pass"))
-                .andExpect(model().errorCount(1))
+                .andExpect(model().errorCount(3))
               ;
     }
 
@@ -63,7 +63,7 @@ public class ValidationRuleTest {
     }
 
     @Test
-    public void givenPasswordDontMathc_whenPostNewUserForm_thenFalse()
+    public void givenPasswordDontMatch_whenPostNewUserForm_thenFalse()
             throws Exception {
         this.mockMvc.perform(MockMvcRequestBuilders
                 .post("/client/new")
