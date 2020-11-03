@@ -1,5 +1,4 @@
 # Beauty Software Project
-## Beauty Software Project Spring
 
 This is a project of a web system for Barbershop management 
 that is being done using Spring framework, Java, and Bootstrap.
