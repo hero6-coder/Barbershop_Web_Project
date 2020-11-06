@@ -4,6 +4,7 @@ import com.beautysoftware.com.controller.RegisterClienteController;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -11,6 +12,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@TestPropertySource(
+        locations = "classpath:application-test.properties")
 public class ValidationRuleTest {
     private MockMvc mockMvc;
 
@@ -28,8 +31,8 @@ public class ValidationRuleTest {
                 .accept(MediaType.TEXT_HTML)
                 .param("nickName","name")
                 .param("email", "john@yahoo.com")
-                .param("password", "password")
-                .param("confirmPassword", "password"))
+                .param("password", "password12")
+                .param("confirmPassword", "password12"))
                 .andExpect(model().errorCount(0))
                 .andExpect(status().isOk());
     }
@@ -44,7 +47,7 @@ public class ValidationRuleTest {
                 .param("email", "johnyahoocom")
                 .param("password", "pass")
                 .param("confirmPassword", "pass"))
-                .andExpect(model().errorCount(1))
+                .andExpect(model().errorCount(3))
               ;
     }
 
@@ -63,7 +66,7 @@ public class ValidationRuleTest {
     }
 
     @Test
-    public void givenPasswordDontMathc_whenPostNewUserForm_thenFalse()
+    public void givenPasswordDontMatch_whenPostNewUserForm_thenFalse()
             throws Exception {
         this.mockMvc.perform(MockMvcRequestBuilders
                 .post("/client/new")
