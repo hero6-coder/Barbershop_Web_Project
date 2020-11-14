@@ -7,9 +7,9 @@
 
 	<title>AlgaWorks</title>
 
-	<link rel="stylesheet" type="text/css" href="assets/stylesheets/vendors.min.css"/>
-	<link rel="stylesheet" type="text/css" href="assets/stylesheets/algaworks.min.css"/>
-	<link rel="stylesheet" type="text/css" href="assets/stylesheets/application.css"/>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/vendors.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/algaworks.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/application.css"/>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,7 +33,7 @@
 
 	    <div class="navbar-header">
 	      <a class="navbar-brand  hidden-xs" href="#">
-	        <img src="images/login_img/login.png">
+	        <img alt="AlgaWorks" src="/images/logo.png"/>
 	      </a>
 
 	      <ul class="nav  navbar-nav">
@@ -137,129 +137,75 @@
 
 
 <div class="page-header">
-  <div class="container-fluid">
-    <h1>
-      Dashboard
-    </h1>
-  </div>
+	<div class="container-fluid">
+		<h1>
+			Cadastro de produto
+		</h1>
+	</div>
 </div>
 
 <div class="container-fluid">
-  
-  <div class="row">
-    <div class="col-sm-4">
-    
-      <div class="aw-box">
-        <div class="aw-box__icon">
-          <i class="fa  fa-bank  fa-3x"></i>
-        </div>
-        <div class="aw-box__value">R$983.433,20</div>
-        <div class="aw-box__title">Faturamento total</div>
-      </div>
-    
-    </div>
 
-    <div class="col-sm-4">
-    
-      <div class="aw-box">
-        <div class="aw-box__icon">
-          <i class="fa  fa-usd  fa-3x"></i>
-        </div>
-        <div class="aw-box__value">R$343.542,59</div>
-        <div class="aw-box__title">Faturamento no ano</div>
-      </div>
-    
-    </div>
-    
-    <div class="col-sm-4">
-    
-      <div class="aw-box">
-        <div class="aw-box__icon">
-          <i class="fa  fa-heartbeat  fa-3x"></i>
-        </div>
-        <div class="aw-box__value">R$40.233,40</div>
-        <div class="aw-box__title">Faturamento no mês</div>
-      </div>
-    
-    </div>
-  </div>
+	<div class="alert  alert-danger  alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<i class="fa  fa-exclamation-circle"></i> Já existe um produto com o nome informado.
+	</div>
 
-  <div class="row">
-    <div class="col-sm-4">
-    
-      <div class="aw-box">
-        <div class="aw-box__icon">
-          <i class="fa  fa-users  fa-3x"></i>
-        </div>
-        <div class="aw-box__value">1.298</div>
-        <div class="aw-box__title">Total de clientes</div>
-      </div>
-    
-    </div>
-    
-    <div class="col-sm-4">
-    
-      <div class="aw-box">
-        <div class="aw-box__icon">
-          <i class="fa  fa-battery-empty  fa-3x"></i>
-        </div>
-        <div class="aw-box__value">123</div>
-        <div class="aw-box__title">Produtos sem estoque</div>
-      </div>
-    
-    </div>
-    
-    <div class="col-sm-4">
-    
-      <div class="aw-box">
-        <div class="aw-box__icon">
-          <i class="fa  fa-truck  fa-3x"></i>
-        </div>
-        <div class="aw-box__value">3.344</div>
-        <div class="aw-box__title">Estoque total</div>
-      </div>
-    
-    </div>
-  </div>
+	<form method="get" class="form-vertical  js-form-loading">
+		
+		<div class="form-group">
+			<label for="input-produto-nome">Nome</label>
+			<input id="input-produto-nome" type="text" class="form-control"/>
+		</div>
 
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="aw-graph-box">
-        <div class="aw-graph-box__header">
-          <h2 class="aw-graph-box__title">Faturamento por mês <small>últimos 12 meses</small></h2>
-        </div>
-        <div class="aw-graph-box__content">
-          <div class="aw-graph-box__no-data">
-              <i class="fa  fa-line-chart  fa-2x"></i>
-              <span>Não há dados</span>
-          </div>
+		<div class="form-group">
+			<label for="input-produto-descricao">Descrição</label>
+			<textarea id="input-produto-descricao" rows="3" class="form-control"></textarea>
+		</div>
 
-          <div>
-            <canvas id="lineChart" height="160"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-sm-6">
-      <div class="aw-graph-box">
-        <div class="aw-graph-box__header">
-          <h2 class="aw-graph-box__title">Faturamento por representante <small>últimos 12 meses</small></h2>
-        </div>
-        <div class="aw-graph-box__content" style="position: relative">
-          <div class="aw-graph-box__no-data">
-              <i class="fa  fa-line-chart  fa-2x"></i>
-              <span>Não há dados</span>
-          </div>
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="form-group">
+					<label for="input-produto-preco">Preço unitário</label>
+					<input id="input-produto-preco" type="text" class="form-control" placeholder="R$"/>
+				</div>
+			</div>
+			
+			<div class="col-sm-3">
+				<div class="form-group">
+					<label for="input-produto-estoque">Estoque</label>
+					<input id="input-produto-estoque" type="text" class="form-control" placeholder="Unidades"/>
+				</div>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<button class="btn  btn-primary" type="submit">Salvar</button>
+			<a href="pesquisa-produtos.html" class="btn  btn-default">Cancelar</a>
+			<a href="#" class="btn  btn-link  aw-btn-link-danger" onclick="excluir()">Excluir este produto</a>
+		</div>
 
-          <div>
-            <canvas id="lineChart" height="160"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	</form>
 </div>
+
+<script>
+function excluir() {
+	swal({
+		title: "Tem certeza?",
+		text: "Você não poderá recuperar o produto após a exclusão.",
+		type: "warning",
+		showCancelButton: true,
+		confirmButtonColor: "#DD6B55",
+		confirmButtonText: "Sim, exclua agora!",
+		closeOnConfirm: false,
+		showLoaderOnConfirm: true
+	}, function() {
+		setTimeout(function() {
+			swal("Excluído!", "O produto foi excluído com sucesso.", "success");
+		}, 2000);
+	});
+}
+</script>
 
 	</section>
 	
@@ -284,8 +230,8 @@
 	</div>
 </div>
 
-<script src="assets/javascripts/vendors.min.js"></script>
-<script src="assets/javascripts/algaworks.min.js"></script>
+<script src="/javascripts/vendors.min.js"></script>
+<script src="/javascripts/algaworks.min.js"></script>
 
 </body>
 </html>

@@ -3,14 +3,14 @@ package com.beautysoftware.com.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 @Controller
 @RequestMapping("/")
-public class Home {
+public class AdminProfileController {
 
-	@GetMapping()
-	public String homePage() {
+	@GetMapping("adminProfile")
+	public String adminProfile() {
 		
-		return "/home";
+		return "pages/admin-profile";
 	}
-	
 }

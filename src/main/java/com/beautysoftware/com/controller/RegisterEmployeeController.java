@@ -1,19 +1,17 @@
 package com.beautysoftware.com.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class RegisterClienteController {
+public class RegisterEmployeeController {
 
-	@GetMapping("client/new")
-	public String registerNewClient(Model model) {
-		
-		return "pages/register-client";
-	}
-
-	
+	@GetMapping("employee/new")
+	public String registerEmployee() {
+		 
+	     return "pages/register-employee";
+	 }
 }
+

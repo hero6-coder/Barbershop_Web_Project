@@ -1,19 +1,16 @@
 package com.beautysoftware.com.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 @Controller
 @RequestMapping("/")
-public class RegisterClienteController {
+public class HomeController {
 
-	@GetMapping("client/new")
-	public String registerNewClient(Model model) {
+	@GetMapping()
+	public String homePage() {
 		
-		return "pages/register-client";
+		return "/home";
 	}
-
 	
 }
