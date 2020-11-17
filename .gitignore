@@ -1,5 +1,18 @@
 # Compiled class file
 *.class
+/target/
+/*/target/
+
+#Eclipse project file
+.settings/
+.classpath
+.project
+
+# Intellij project file
+.idea/
+
+#VSCode
+.vscode/
 
 # Log file
 *.log
