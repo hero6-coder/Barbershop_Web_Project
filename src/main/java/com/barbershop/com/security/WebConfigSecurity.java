@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
@@ -23,6 +24,8 @@ public class WebConfigSecurity extends WebSecurityConfigurerAdapter {
 			http
 			.authorizeRequests ()
 			.antMatchers(HttpMethod.GET,"/").permitAll()
+			.antMatchers("/registerUser/new").permitAll()
+			.antMatchers("/registerUser/save").permitAll()
 			.anyRequest (). authenticated ()
 			.and()
 			.formLogin().permitAll ()
@@ -39,7 +42,6 @@ public class WebConfigSecurity extends WebSecurityConfigurerAdapter {
 			   auth
 			   .userDetailsService(detail)
 			   .passwordEncoder(new BCryptPasswordEncoder());
-			 
 		       
 		}
 		

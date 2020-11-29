@@ -1,67 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
-	<meta charset="UTF-8"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
 
-	<title>Register client</title>
-
-	<link rel="stylesheet" type="text/css" href="/css/css_template/vendors.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/css_template/barbershop.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/css_template/application.css"/> 
-	
-	
-</head>
 <body>
 
-<div class="aw-layout-loading  js-loading-overlay">
-	<div class="aw-layout-loading__container">
-		<span class="aw-balls-spinner">Loading...</span>
-	</div>
-</div>
-
-<div class="aw-layout-page">
-
-	<nav class="navbar  navbar-fixed-top  navbar-default  js-sticky-reference" id="main-navbar">
-	  <div class="container-fluid">
-
-	    <div class="navbar-header">
-	      <a class="navbar-brand  hidden-xs" href="#">
-	        <a href="/"><img src="/images/login_images/homelogin.png" style="width: 35px; margin-top: 4px;"></a>
-	      
-	      </a>
-
-	        <ul class="nav  navbar-nav">
-	        <li>
-	          <a href="#" class="js-sidebar-toggle">
-	          <img alt="" src="/images/index_images/icon_menu.png"></a>
-	        </li>
-	      </ul>
-	    </div>
-
-	    
-
-	  </div>
-	</nav>
-
-	<aside class="aw-layout-sidebar  js-sidebar">
-		<div class="aw-layout-sidebar__content">
-
-    <nav class="aw-menu  js-menu">
-      <ul class="aw-menu__list">
-
-        
-
-
-      
-      </ul>
-    </nav>
-
-		</div>
-	</aside>
-
+  <div layout:fragment="content">
+  
 	<section class="aw-layout-content  js-content">
 
 
@@ -77,7 +21,7 @@
 
 <div class="container-fluid">
 
-      <form method="post" th:object="${user}" th:action="@{/registerUser/save}" 
+      <form method="post" th:object="${user}" th:action="@{/registerAdmin/save}" 
 	         class="form-vertical  js-form-loading" enctype="multipart/form-data">
 	
      <!-- ------------------------------------------------------------------------------ -->    
@@ -188,9 +132,7 @@
 		<div class="form-group">
 			 <button class="btn  btn-primary" type="submit">Save</button>
 			    <input type="reset" value="Cancel" class="btn  btn-default">
-			     <a class="btn  btn-primary" href="/adminProfile">Back</a>
-			
-			
+			     
 		  </div>
 		  
 	  </form>
@@ -201,19 +143,7 @@
 
 	</section>
 	
-	<footer class="aw-layout-footer  js-content">
-		<div class="container-fluid">
-			<span class="aw-footer-disclaimer">&copy; 2020 Barbershop. All rights reserved</span>
-		</div>
-	</footer>
-
-</div>
-
-
-
-<script src="/javascripts/vendors.min.js"></script>
-<script src="/javascripts/barbershop.min.js"></script>
-
-
+	</div>
+	
 </body>
 </html>

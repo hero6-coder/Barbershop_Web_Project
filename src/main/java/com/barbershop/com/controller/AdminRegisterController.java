@@ -17,19 +17,19 @@ import com.barbershop.com.service.UserRegisterService;
 
 @Controller
 @RequestMapping("/")
-public class UserRegisterController {
+public class AdminRegisterController {
 
 	@Autowired
 	private UserRegisterService userRegisterService;
 
-	@GetMapping("registerUser/new")
+	@GetMapping("registerAdmin/new")
 	public String registerNewUser(Model model) {
 
 		model.addAttribute("user", new UserRegisterModel());
-		return "/register-user";
+		return "/register-admin";
 	}
 
-	@PostMapping(path = "registerUser/save")
+	@PostMapping(path = "registerAdmin/save")
 	public String saveUser(@ModelAttribute("user") UserRegisterModel userRegisterModel,
 			@RequestParam("file")MultipartFile file){
 
@@ -41,7 +41,7 @@ public class UserRegisterController {
 			}
 		     
 		userRegisterService.saveUser(userRegisterModel);
-		return "redirect:/registerUser/new";
+		return "redirect:/registerAdmin/new";
 
 	}
 
